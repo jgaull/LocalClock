@@ -57,7 +57,7 @@ package clockParts
 			_ring.graphics.lineStyle();
 			_ring.graphics.beginFill(person.color);
 			
-			var polygoneSize:int = 3;
+			var polygoneSize:int = 6;
 			
 			for(var i:int = hours == person.morningHours ? 0 : 1; i < topDiagonal.length - 1; i += polygoneSize)
 			{

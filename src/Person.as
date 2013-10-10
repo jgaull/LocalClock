@@ -12,6 +12,7 @@ package
 		
 		public function Person($weekdayOpen:Time, $weekdayClose:Time, $color:uint, $name:String, $location:String, $timezoneOffset:int = 0, $weekendOpen:Time = null, $weekendClose:Time = null)
 		{
+			
 			if($weekendOpen == null || $weekendClose == null ||
 				($weekendOpen.hoursIntoWeek == $weekdayOpen.hoursIntoWeek && $weekendClose.hoursIntoWeek == $weekdayClose.hoursIntoWeek))
 			{

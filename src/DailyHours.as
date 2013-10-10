@@ -30,7 +30,7 @@ package
 			
 			do {
 				points.push(pointForHours(hours, radius));
-				hours += 0.083333;
+				hours += 0.033333333;
 			} while(hours < _close.hoursIntoWeek + timezoneOffset)
 				
 			points.push(pointForHours(_close.hoursIntoWeek + timezoneOffset, radius));

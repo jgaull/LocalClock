@@ -63,15 +63,15 @@ package
 			
 			var mom:Person = new Person(new Time("15:00"), new Time("20:00"), 0xFF8000, "Shari", "Bethlehem, PA", 3, new Time("8:00"), new Time("20:00"));
 			var dad:Person = new Person(new Time("09:00"), new Time("22:00"), 0xCCB129, "Dave", "Belle Mead, NJ", 3, new Time("09:00"), new Time("22:00"));
+			var michelle:Person = new Person(new Time("17:00"), new Time("20:00"), 0x003333, "Michelle", "New Orleans, LA", 2, new Time("11:00"), new Time("20:00"));
 			var melissaMom:Person = new Person(new Time("18:30"), new Time("20:00"), 0x8A993D, "Caroline", "Los Altos, CA", 0, new Time("11:00"), new Time("20:00"));
 			var melissaDad:Person = new Person(new Time("18:00"), new Time("20:00"), 0x14663D, "John", "Portland, OR", 0, new Time("07:00"), new Time("20:00"));
-			var michelle:Person = new Person(new Time("17:00"), new Time("20:00"), 0x003333, "Michelle", "New Orleans, LA", 2, new Time("11:00"), new Time("20:00"));
 			
 			_people.push(mom);
 			_people.push(dad);
+			_people.push(michelle);
 			_people.push(melissaMom);
 			_people.push(melissaDad);
-			_people.push(michelle);
 			
 			/*var test:Vector.<DailyHours> = new Vector.<DailyHours>();
 			test.push(new DailyHours(new Time("00:00"), new Time("12:00"), new Weekday(Weekday.MONDAY)));
