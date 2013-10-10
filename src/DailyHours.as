@@ -13,6 +13,16 @@ package
 			_close = $close;
 		}
 		
+		public function get close():Time
+		{
+			return _close;
+		}
+
+		public function get open():Time
+		{
+			return _open;
+		}
+
 		public function getPointsToDraw(radius:Number, timezoneOffset:int):Vector.<Point>
 		{
 			var points:Vector.<Point> = new Vector.<Point>();
@@ -20,7 +30,7 @@ package
 			
 			do {
 				points.push(pointForHours(hours, radius));
-				hours += 6;
+				hours += 0.083333;
 			} while(hours < _close.hoursIntoWeek + timezoneOffset)
 				
 			points.push(pointForHours(_close.hoursIntoWeek + timezoneOffset, radius));
@@ -48,6 +58,11 @@ package
 			var x:Number = radius * Math.cos(someCrazyNumber);
 			var y:Number = radius * Math.sin(someCrazyNumber);
 			return new Point(x, y);
+		}
+		
+		public function get duration():int
+		{
+			return _close.hoursIntoWeek - _open.hoursIntoWeek;
 		}
 	}
 }

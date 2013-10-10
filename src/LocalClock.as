@@ -9,6 +9,7 @@ package
 	import flash.filesystem.File;
 	import flash.filesystem.FileMode;
 	import flash.filesystem.FileStream;
+	import flash.sampler.NewObjectSample;
 	import flash.utils.ByteArray;
 	
 	public class LocalClock extends Sprite
@@ -28,16 +29,12 @@ package
 			
 			_clockFace = new Sprite();
 			
-			var gray:Person = new Person(new DailyHours(new Time("00:00"), new Time("24:00")), 0xdedede, "", "", 0);
-			
 			for (var i:int = 0; i < _people.length; i++)
 			{
 				var person:Person = _people[i];
 				var radius:Number = innerRadius + ((thickness + spacing) * i);
 				var ring:ClockRing = new ClockRing(person, radius, thickness);
-				var grayRing:ClockRing = new ClockRing(gray, radius, thickness);
 				_clockFace.addChildAt(ring, 0);
-				_clockFace.addChildAt(grayRing, 0);
 			}
 			
 			var overallRadius:Number = innerRadius + ((thickness + spacing) * i);
@@ -50,7 +47,7 @@ package
 			_clockFace.y = overallRadius;
 			addChild(_clockFace);
 			
-			var pngSource:BitmapData = new BitmapData (overallRadius * 2, overallRadius * 2, true, 0xffffff);
+			var pngSource:BitmapData = new BitmapData (overallRadius * 2, overallRadius * 2);
 			pngSource.draw(this);
 			var ba:ByteArray = PNGEncoder.encode(pngSource);
 			var file:File = File.desktopDirectory.resolvePath("clock.png");
@@ -64,11 +61,11 @@ package
 		{
 			_people = new Vector.<Person>();
 			
-			var mom:Person = new Person(new DailyHours(new Time("15:00"), new Time("20:00")), 0xFF8000, "Shari", "Bethlehem, PA", 3);
-			var dad:Person = new Person(new DailyHours(new Time("09:00"), new Time("22:00")), 0xCCB129, "Dave", "Belle Mead, NJ", 3);
-			var melissaMom:Person = new Person(new DailyHours(new Time("11:00"), new Time("20:00")), 0x8A993D, "Caroline", "Los Altos, CA", 0);
-			var melissaDad:Person = new Person(new DailyHours(new Time("07:00"), new Time("20:00")), 0x14663D, "John", "Portland, OR", 0);
-			var michelle:Person = new Person(new DailyHours(new Time("17:00"), new Time("20:00")), 0x003333, "Michelle", "New Orleans, LA", 2);
+			var mom:Person = new Person(new Time("15:00"), new Time("20:00"), 0xFF8000, "Shari", "Bethlehem, PA", 3, new Time("8:00"), new Time("20:00"));
+			var dad:Person = new Person(new Time("09:00"), new Time("22:00"), 0xCCB129, "Dave", "Belle Mead, NJ", 3, new Time("09:00"), new Time("22:00"));
+			var melissaMom:Person = new Person(new Time("18:30"), new Time("20:00"), 0x8A993D, "Caroline", "Los Altos, CA", 0, new Time("11:00"), new Time("20:00"));
+			var melissaDad:Person = new Person(new Time("18:00"), new Time("20:00"), 0x14663D, "John", "Portland, OR", 0, new Time("07:00"), new Time("20:00"));
+			var michelle:Person = new Person(new Time("17:00"), new Time("20:00"), 0x003333, "Michelle", "New Orleans, LA", 2, new Time("11:00"), new Time("20:00"));
 			
 			_people.push(mom);
 			_people.push(dad);
